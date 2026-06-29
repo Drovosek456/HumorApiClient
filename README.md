@@ -22,15 +22,10 @@
 HumorApp/
 
 ├── Models/
-
 │   ├── Joke.cs
-
 │   └── JokeSearchResponse.cs
-
 ├── Services/
-
 │   └── HumorApiService.cs
-
 └── Program.cs
 
 ## Как запустить
