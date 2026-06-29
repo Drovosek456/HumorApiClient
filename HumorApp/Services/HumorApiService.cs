@@ -53,5 +53,15 @@ namespace HumorApp.Services
             // Если список отсутствует, возвращаем пустую коллекцию
             return result?.Jokes ?? new List<Joke>();
         }
+
+        // 3. Получить шутку по ID
+        public async Task<Joke> GetJokeByIdAsync(int id)
+        {
+            string url = $"{_baseUrl}/jokes/{id}";
+            var response = await _client.GetAsync(url);
+            response.EnsureSuccessStatusCode();
+            string json = await response.Content.ReadAsStringAsync();
+            return JsonConvert.DeserializeObject<Joke>(json);
+        }
     }
 }
